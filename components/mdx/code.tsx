@@ -19,9 +19,13 @@ export function Code({
   const [hasCopied, setHasCopied] = useState(false);
 
   const copyToClipboard = async () => {
-    await navigator.clipboard.writeText(children);
-    setHasCopied(true);
-    setTimeout(() => setHasCopied(false), 2000);
+    try {
+      await navigator.clipboard.writeText(children);
+      setHasCopied(true);
+      setTimeout(() => setHasCopied(false), 2000);
+    } catch (error) {
+      console.error("Failed to copy text: ", error);
+    }
   };
 
   return (
