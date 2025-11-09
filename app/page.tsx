@@ -1,7 +1,9 @@
-import { getAllPosts } from "@/lib/posts";
-import { PostCard } from "@/components/posts/post-card";
-import * as Craft from "@/components/craft";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
+import { PostCard } from "@/components/posts/post-card";
+
+import { getAllPosts } from "@/lib/posts";
+
+import * as Craft from "@/components/craft";
 import Balancer from "react-wrap-balancer";
 
 export default function HomePage() {
@@ -11,7 +13,7 @@ export default function HomePage() {
     <>
       <Craft.Main>
         <Craft.Section>
-          <Craft.Container className="space-y-12">
+          <Craft.Container>
             {/* Header */}
             <div className="space-y-4 text-center">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
@@ -74,7 +76,7 @@ export default function HomePage() {
                   No posts yet. Create your first post in the{" "}
                   <code className="rounded bg-muted px-2 py-1 font-mono text-sm">
                     content/
-                  </code>{" "}
+                  </code>
                   directory.
                 </p>
               )}
