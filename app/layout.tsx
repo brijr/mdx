@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
+import { Toaster } from "@/components/ui/sonner";
 import { Layout } from "@/components/ds";
 
 import type { Metadata } from "next";
@@ -39,6 +40,7 @@ export default function RootLayout({
           <div className="fixed bottom-6 right-6">
             <ThemeToggle />
           </div>
+          <Toaster position="top-center" />
         </ThemeProvider>
       </body>
     </Layout>

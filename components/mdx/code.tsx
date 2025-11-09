@@ -5,6 +5,7 @@ import { Highlight, themes } from "prism-react-renderer";
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from "next-themes";
+import { toast } from "sonner";
 
 interface CodeProps {
   children: string;
@@ -25,9 +26,11 @@ export function Code({
     try {
       await navigator.clipboard.writeText(children);
       setHasCopied(true);
+      toast.success("Code copied to clipboard");
       setTimeout(() => setHasCopied(false), 2000);
     } catch (error) {
       console.error("Failed to copy text: ", error);
+      toast.error("Failed to copy code");
     }
   };
 
