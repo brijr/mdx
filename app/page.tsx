@@ -4,8 +4,6 @@ import { PostCard } from "@/components/posts/post-card";
 
 import { getAllPosts } from "@/lib/posts";
 
-import Balancer from "react-wrap-balancer";
-
 export default function HomePage() {
   const posts = getAllPosts();
 
