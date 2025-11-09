@@ -1,9 +1,9 @@
+import { Main, Section, Container } from "@/components/ds";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { PostCard } from "@/components/posts/post-card";
 
 import { getAllPosts } from "@/lib/posts";
 
-import * as Craft from "@/components/craft";
 import Balancer from "react-wrap-balancer";
 
 export default function HomePage() {
@@ -11,9 +11,9 @@ export default function HomePage() {
 
   return (
     <>
-      <Craft.Main>
-        <Craft.Section>
-          <Craft.Container>
+      <Main>
+        <Section>
+          <Container>
             {/* Header */}
             <div className="space-y-4 text-center">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
@@ -81,9 +81,9 @@ export default function HomePage() {
                 </p>
               )}
             </div>
-          </Craft.Container>
-        </Craft.Section>
-      </Craft.Main>
+          </Container>
+        </Section>
+      </Main>
 
       {/* Theme Toggle */}
       <div className="fixed bottom-6 right-6">

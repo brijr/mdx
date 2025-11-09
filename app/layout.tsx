@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
-import { Layout } from "@/components/craft";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { Layout } from "@/components/ds";
+
+import type { Metadata } from "next";
 
 import "./globals.css";
 

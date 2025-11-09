@@ -1,7 +1,9 @@
 "use client";
 
 import * as runtime from "react/jsx-runtime";
+
 import { Code } from "./code";
+
 import React from "react";
 
 const sharedComponents = {
@@ -45,9 +47,7 @@ const sharedComponents = {
   ),
 };
 
-// This is safe: code is pre-compiled at build time by Velite, not runtime user input
 const useMDXComponent = (code: string) => {
-  // eslint-disable-next-line no-new-func
   const fn = new Function(code);
   return fn({ ...runtime }).default;
 };

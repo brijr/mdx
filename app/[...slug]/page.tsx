@@ -1,8 +1,10 @@
-import { notFound } from "next/navigation";
-import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import { Main, Section, Container } from "@/components/ds";
 import { MDXContent } from "@/components/mdx/mdx-content";
 import { Meta } from "@/components/mdx/meta";
-import * as Craft from "@/components/craft";
+
+import { notFound } from "next/navigation";
+import { getAllPosts, getPostBySlug } from "@/lib/posts";
+
 import type { Metadata } from "next";
 import type { Post } from ".velite";
 
@@ -46,9 +48,9 @@ export default async function Page(props: PageProps) {
   }
 
   return (
-    <Craft.Main>
-      <Craft.Section>
-        <Craft.Container>
+    <Main>
+      <Section>
+        <Container>
           <Meta
             title={post.title}
             description={post.description}
@@ -58,8 +60,8 @@ export default async function Page(props: PageProps) {
             className="mb-8"
           />
           <MDXContent code={post.body} />
-        </Craft.Container>
-      </Craft.Section>
-    </Craft.Main>
+        </Container>
+      </Section>
+    </Main>
   );
 }
