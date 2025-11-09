@@ -1,56 +1,33 @@
+import { Prose, Section, Container } from "@/components/ds";
 import { PageMeta, formatDate } from "@/lib/mdx";
-import { cn } from "@/lib/utils";
-import { Calendar, Tag, User } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 interface MetaProps extends PageMeta {
   className?: string;
 }
 
-export function Meta({
-  title,
-  description,
-  date,
-  author,
-  tags,
-  className,
-}: MetaProps) {
+export function Meta({ title, description, date, author, tags }: MetaProps) {
   return (
-    <div className={cn("space-y-4", className)}>
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-        {title}
-      </h1>
-      {description && (
-        <p className="text-xl text-muted-foreground">{description}</p>
-      )}
-      <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-        {date && (
-          <div className="flex items-center gap-1">
-            <Calendar className="h-4 w-4" />
-            <time dateTime={date}>{formatDate(date)}</time>
-          </div>
-        )}
-        {author && (
-          <div className="flex items-center gap-1">
-            <User className="h-4 w-4" />
-            <span>{author}</span>
-          </div>
-        )}
-        {tags && tags.length > 0 && (
-          <div className="flex items-center gap-1">
-            <Tag className="h-4 w-4" />
-            <div className="flex gap-1">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-md bg-muted px-2 py-1 text-xs"
-                >
-                  {tag}
-                </span>
-              ))}
+    <Section>
+      <Container>
+        <Prose isSpaced>
+          <h1>{title}</h1>
+          {description && <p>{description}</p>}
+          {(date || author || (tags && tags.length > 0)) && (
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
+              {date && <time dateTime={date}>{formatDate(date)}</time>}
+              {author && <span>{author}</span>}
+              {tags && tags.length > 0 && (
+                <div className="flex gap-2">
+                  {tags.map((tag) => (
+                    <Badge key={tag}>{tag}</Badge>
+                  ))}
+                </div>
+              )}
             </div>
-          </div>
-        )}
-      </div>
-    </div>
+          )}
+        </Prose>
+      </Container>
+    </Section>
   );
 }

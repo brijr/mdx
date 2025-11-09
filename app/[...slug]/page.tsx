@@ -1,4 +1,4 @@
-import { Main, Section, Container } from "@/components/ds";
+import { Main, Section, Container, Prose } from "@/components/ds";
 import { MDXContent } from "@/components/mdx/mdx-content";
 import { Meta } from "@/components/mdx/meta";
 
@@ -49,17 +49,18 @@ export default async function Page(props: PageProps) {
 
   return (
     <Main>
+      <Meta
+        title={post.title}
+        description={post.description}
+        date={post.date}
+        author={post.author}
+        tags={post.tags}
+      />
       <Section>
         <Container>
-          <Meta
-            title={post.title}
-            description={post.description}
-            date={post.date}
-            author={post.author}
-            tags={post.tags}
-            className="mb-8"
-          />
-          <MDXContent code={post.body} />
+          <Prose isArticle isSpaced>
+            <MDXContent code={post.body} />
+          </Prose>
         </Container>
       </Section>
     </Main>

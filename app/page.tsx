@@ -17,25 +17,23 @@ export default function HomePage() {
             {/* Header */}
             <div className="space-y-4 text-center">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                <Balancer>MDX Starter Template</Balancer>
+                MDX Blog Starter Template
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                <Balancer>
-                  A modern MDX and Next.js starter made by{" "}
-                  <a
-                    className="underline underline-offset-2 hover:text-foreground transition-colors"
-                    href="https://bridger.to"
-                  >
-                    Bridger
-                  </a>{" "}
-                  at{" "}
-                  <a
-                    className="underline underline-offset-2 hover:text-foreground transition-colors"
-                    href="https://wipdes.com"
-                  >
-                    WIP
-                  </a>
-                </Balancer>
+                A modern MDX and Next.js starter made by{" "}
+                <a
+                  className="underline underline-offset-2 hover:text-foreground transition-colors"
+                  href="https://bridger.to"
+                >
+                  Bridger
+                </a>{" "}
+                at{" "}
+                <a
+                  className="underline underline-offset-2 hover:text-foreground transition-colors"
+                  href="https://wipdes.com"
+                >
+                  WIP
+                </a>
               </p>
               <div className="flex gap-4 justify-center flex-wrap">
                 <a
