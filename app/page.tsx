@@ -1,79 +1,92 @@
-import Link from "next/link";
-import Image from "next/image";
-import Screenshot from "@/public/screenshot.jpg";
-
+import { getAllPosts } from "@/lib/posts";
+import { PostCard } from "@/components/posts/post-card";
+import * as Craft from "@/components/craft";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
+import Balancer from "react-wrap-balancer";
 
 export default function HomePage() {
+  const posts = getAllPosts();
+
   return (
-    <main className="w-full h-full flex items-center justify-center">
-      <ToDelete />
+    <>
+      <Craft.Main>
+        <Craft.Section>
+          <Craft.Container className="space-y-12">
+            {/* Header */}
+            <div className="space-y-4 text-center">
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+                <Balancer>MDX Starter Template</Balancer>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                <Balancer>
+                  A modern MDX and Next.js starter made by{" "}
+                  <a
+                    className="underline underline-offset-2 hover:text-foreground transition-colors"
+                    href="https://bridger.to"
+                  >
+                    Bridger
+                  </a>{" "}
+                  at{" "}
+                  <a
+                    className="underline underline-offset-2 hover:text-foreground transition-colors"
+                    href="https://wipdes.com"
+                  >
+                    WIP
+                  </a>
+                </Balancer>
+              </p>
+              <div className="flex gap-4 justify-center flex-wrap">
+                <a
+                  href="https://github.com/brijr/mdx"
+                  className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+                >
+                  View on GitHub
+                </a>
+                <a
+                  href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbrijr%2Fmdx"
+                  className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                >
+                  Deploy to Vercel
+                </a>
+              </div>
+            </div>
+
+            {/* Posts List */}
+            <div className="space-y-6">
+              <h2 className="text-2xl font-semibold tracking-tight">
+                Recent Posts
+              </h2>
+              {posts.length > 0 ? (
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {posts.map((post) => (
+                    <PostCard
+                      key={post.slug}
+                      slug={post.slug}
+                      title={post.title}
+                      description={post.description}
+                      date={post.date}
+                      tags={post.tags}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <p className="text-muted-foreground">
+                  No posts yet. Create your first post in the{" "}
+                  <code className="rounded bg-muted px-2 py-1 font-mono text-sm">
+                    content/
+                  </code>{" "}
+                  directory.
+                </p>
+              )}
+            </div>
+          </Craft.Container>
+        </Craft.Section>
+      </Craft.Main>
+
+      {/* Theme Toggle */}
       <div className="fixed bottom-6 right-6">
         <ThemeToggle />
       </div>
-    </main>
+    </>
   );
 }
-
-const ToDelete = () => {
-  return (
-    <section className="p-6 sm:p-12 flex flex-col gap-4 text-center items-center max-w-screen-lg">
-      <h1>
-        <a
-          className="underline underline-offset-2 hover:text-muted-foreground"
-          href="https://github.com/brijr/mdx"
-        >
-          brijr/mdx
-        </a>
-      </h1>
-      <h2>
-        MDX and Next.js Starter made by{" "}
-        <a
-          className="underline underline-offset-2 hover:text-muted-foreground"
-          href="https://bridger.to"
-        >
-          Bridger
-        </a>{" "}
-        at{" "}
-        <a
-          className="underline underline-offset-2 hover:text-muted-foreground"
-          href="https://wipdes.com"
-        >
-          WIP
-        </a>
-        . View an{" "}
-        <Link
-          className="underline underline-offset-2 hover:text-muted-foreground"
-          href="/example"
-        >
-          example page
-        </Link>
-        .
-      </h2>
-
-      {/* Screenshot */}
-      <Image
-        src={Screenshot}
-        alt="MDX Starter Screenshot"
-        placeholder="blur"
-        className="my-4 sm:my-8 border rounded-md"
-      />
-
-      {/* Vercel Deploy */}
-      <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbrijr%2Fmdx">
-        <img
-          width="103"
-          height="32"
-          src="https://vercel.com/button"
-          alt="Deploy with Vercel"
-        />
-      </a>
-      <p className="text-sm text-muted-foreground">
-        Deploy with{" "}
-        <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbrijr%2Fmdx">
-          Vercel
-        </a>
-      </p>
-    </section>
-  );
-};

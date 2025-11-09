@@ -2,9 +2,12 @@
   "name": "mdx-starter",
   "version": "0.1.0",
   "private": true,
+  "imports": {
+    "#site/content": "./.velite/index.js"
+  },
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
+    "dev": "concurrently \"velite --watch\" \"next dev --turbopack\"",
+    "build": "velite && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -31,6 +34,7 @@
     "shiki": "^3.15.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
+    "velite": "^0.3.0",
     "zod": "^4.1.12"
   },
   "devDependencies": {
@@ -41,6 +45,7 @@
     "@types/react": "19.0.14",
     "@types/react-dom": "19.0.4",
     "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.1",
     "eslint": "^9.39.1",
     "eslint-config-next": "16.0.1",
     "postcss": "^8.5.6",

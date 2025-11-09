@@ -24,6 +24,12 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      ".velite": [
+        "./.velite"
+      ],
+      "#site/content": [
+        "./.velite/index.d.ts"
       ]
     },
     "target": "ES2017"
@@ -34,7 +40,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/(markdown)/page.mdx",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    ".velite"
   ],
   "exclude": [
     "node_modules"

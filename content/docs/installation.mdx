@@ -1,0 +1,98 @@
+---
+title: "Installation Guide"
+description: "How to install and set up the MDX starter template"
+date: "2025-01-07"
+author: "Bridger"
+tags: ["docs", "setup"]
+published: true
+---
+
+## Quick Start
+
+Get up and running with the MDX starter template in minutes.
+
+### Prerequisites
+
+- Node.js 18+ installed
+- pnpm package manager (recommended)
+
+### Installation Steps
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/brijr/mdx.git
+cd mdx
+```
+
+2. **Install dependencies**
+
+```bash
+pnpm install
+```
+
+3. **Start the development server**
+
+```bash
+pnpm dev
+```
+
+4. **Open your browser**
+
+Navigate to `http://localhost:3000` to see your site.
+
+## Project Structure
+
+```
+mdx/
+├── app/                 # Next.js App Router
+│   ├── [...slug]/      # Dynamic catch-all routes
+│   └── page.tsx        # Homepage
+├── components/         # React components
+│   ├── mdx/           # MDX-specific components
+│   └── theme/         # Theme components
+├── content/           # Your MDX content
+│   ├── blog/          # Blog posts
+│   └── docs/          # Documentation
+└── lib/               # Utility functions
+```
+
+## Adding Content
+
+Create new `.mdx` files anywhere in the `content/` directory:
+
+```mdx
+---
+title: "My New Post"
+description: "This is my first post"
+date: "2025-01-09"
+published: true
+---
+
+# Hello World
+
+This is my content!
+```
+
+The file structure determines the URL:
+- `content/example.mdx` → `/example`
+- `content/blog/post.mdx` → `/blog/post`
+- `content/docs/guide.mdx` → `/docs/guide`
+
+## Configuration
+
+Edit `velite.config.ts` to customize content processing and schema validation.
+
+## Deployment
+
+Deploy to Vercel with one click:
+
+```bash
+# Build for production
+pnpm build
+
+# Start production server
+pnpm start
+```
+
+Your site is now ready for deployment!

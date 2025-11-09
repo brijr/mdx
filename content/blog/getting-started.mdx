@@ -1,0 +1,57 @@
+---
+title: "Getting Started with MDX"
+description: "Learn how to create dynamic content with MDX and Next.js"
+date: "2025-01-08"
+author: "Bridger"
+tags: ["tutorial", "mdx", "next.js"]
+published: true
+---
+
+## Introduction
+
+MDX is a powerful tool that lets you use JSX in your markdown content. This means you can import and use React components directly in your markdown files!
+
+## Why MDX?
+
+1. **Component Integration** - Use React components anywhere in your content
+2. **Type Safety** - Full TypeScript support
+3. **Flexibility** - Mix markdown with custom components
+4. **Performance** - Static generation with Next.js
+
+## Basic Syntax
+
+Here's a simple example:
+
+```mdx
+import { MyComponent } from './components'
+
+# Hello World
+
+This is regular markdown content.
+
+<MyComponent />
+
+And we're back to markdown!
+```
+
+## Code Highlighting
+
+The template includes beautiful code highlighting with copy-to-clipboard functionality:
+
+```javascript
+const greeting = "Hello, MDX!";
+console.log(greeting);
+```
+
+```python
+def greet(name):
+    return f"Hello, {name}!"
+```
+
+## Next Steps
+
+- Explore the `content/` directory to see more examples
+- Add your own MDX files in any folder structure
+- Customize the components in `components/mdx/`
+
+Happy writing!
