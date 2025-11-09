@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Layout } from "@/components/ds";
 
 import type { Metadata } from "next";
@@ -14,14 +15,6 @@ export const metadata: Metadata = {
   },
   description:
     "MDX and Next.js Starter made by Bridger Tower at 9d8 and WIP / AC",
-  keywords: ["Next.js", "MDX", "React", "TypeScript", "Tailwind CSS"],
-  authors: [{ name: "Bridger Tower" }],
-  creator: "Bridger Tower",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    siteName: "MDX Starter",
-  },
 };
 
 export default function RootLayout({
@@ -43,6 +36,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <div className="fixed bottom-6 right-6">
+            <ThemeToggle />
+          </div>
         </ThemeProvider>
       </body>
     </Layout>
