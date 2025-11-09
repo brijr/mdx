@@ -38,7 +38,7 @@ const sharedComponents = {
     ) {
       return <>{children}</>;
     }
-    return <p className="leading-7 [&:not(:first-child)]:mt-6">{children}</p>;
+    return <p className="leading-7 not-first:mt-6">{children}</p>;
   },
   blockquote: ({ children }: { children: React.ReactNode }) => (
     <blockquote className="mt-6 border-l-2 pl-6 italic">{children}</blockquote>
