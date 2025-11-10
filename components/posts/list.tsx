@@ -9,7 +9,7 @@ export const List = ({ posts }: { posts: Post[] }) => {
       <Container className="space-y-6">
         <h2 className="text-2xl font-semibold tracking-tight">Recent Posts</h2>
         {posts.length > 0 ? (
-          <ul className="border divide-y">
+          <ul className="border divide-y rounded-lg">
             {posts.map((post) => (
               <Item
                 key={post.slug}

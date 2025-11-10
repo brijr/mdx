@@ -5,9 +5,9 @@ export const Hero = () => {
   return (
     <Section className="bg-muted/50 border-b">
       <Container className="grid gap-6">
-        <Logo width={32} />
+        <Logo width={24} />
         <Prose isSpaced>
-          <h1>MDX Blog Starter Template</h1>
+          <h1>Markdown Blog Starter Template</h1>
           <p>
             A modern MDX and Next.js starter made by{" "}
             <a href="https://brijr.dev">brijr</a>. Built with Next.js, Velite,
