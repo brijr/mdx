@@ -3,6 +3,7 @@
 import * as runtime from "react/jsx-runtime";
 
 import { Code } from "./code";
+import { Media } from "@/components/media";
 
 import React from "react";
 
@@ -45,6 +46,30 @@ const sharedComponents = {
   blockquote: ({ children }: { children: React.ReactNode }) => (
     <blockquote className="mt-6 border-l-2 pl-6 italic">{children}</blockquote>
   ),
+  img: ({
+    src,
+    alt,
+    width,
+    height,
+    className,
+  }: {
+    src?: string;
+    alt?: string;
+    width?: number | string;
+    height?: number | string;
+    className?: string;
+  }) => {
+    if (!src) return null;
+    return (
+      <Media
+        src={src}
+        alt={alt}
+        width={typeof width === "string" ? parseInt(width) : width}
+        height={typeof height === "string" ? parseInt(height) : height}
+        className={className}
+      />
+    );
+  },
 };
 
 const useMDXComponent = (code: string) => {
