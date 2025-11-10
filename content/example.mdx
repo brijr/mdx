@@ -103,3 +103,13 @@ You can also customize the video playback with parameters. This is useful when y
 <YouTube videoid="dQw4w9WgXcQ" height={500} params="controls=0&start=10" />
 
 The YouTube component accepts all standard YouTube player parameters, giving you full control over how videos are displayed and played. This makes it easy to create custom video experiences that match your content's needs.
+
+### Bookmarks
+
+The Bookmark component automatically fetches and displays rich link previews with metadata from any URL. This creates beautiful, informative link cards that show the title, description, image, and domain of the linked content. The component fetches Open Graph and Twitter Card metadata to provide a rich preview experience.
+
+When you add a bookmark, it automatically extracts the most relevant information from the linked page, making it easy for readers to understand what they'll find when they click through. The component includes smooth loading states and handles errors gracefully, ensuring a great user experience even if metadata isn't available.
+
+<Bookmark url="https://nextjs.org" />
+
+You can use bookmarks to highlight important resources, reference articles, or create curated link collections. The component is fully responsive and includes hover effects that make it clear the card is clickable. All bookmarks open in a new tab with proper security attributes to protect your readers.

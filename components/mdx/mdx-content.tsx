@@ -5,6 +5,7 @@ import * as runtime from "react/jsx-runtime";
 import { Code } from "./code";
 import { Media } from "@/components/media";
 import { YouTube } from "@/components/youtube";
+import { Bookmark } from "@/components/bookmark";
 
 import React from "react";
 
@@ -96,6 +97,15 @@ const sharedComponents = {
         className={className}
       />
     );
+  },
+  Bookmark: ({
+    url,
+    className,
+  }: {
+    url: string;
+    className?: string;
+  }) => {
+    return <Bookmark url={url} className={className} />;
   },
 };
 
