@@ -22,7 +22,7 @@ export const Logo = ({
         height={height}
         src={LogoLight}
         alt="Italy Vita Logo"
-        className="block dark:hidden"
+        className="block dark:hidden invert"
       />
       <Image
         width={width}
