@@ -2,6 +2,7 @@ import { Prose, Section, Container } from "@/components/ds";
 import { PageMeta, formatDate } from "@/lib/mdx";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { CopyArticleButton } from "./copy-article-button";
 
 import Link from "next/link";
 import { Home } from "lucide-react";
@@ -31,11 +32,14 @@ export function Meta({ title, description, date, author, tags }: MetaProps) {
             </div>
           )}
         </Prose>
-        <Button asChild variant="outline" size="icon">
-          <Link href="/">
-            <Home />
-          </Link>
-        </Button>
+        <div className="flex gap-2">
+          <Button asChild variant="outline" size="icon">
+            <Link href="/">
+              <Home />
+            </Link>
+          </Button>
+          <CopyArticleButton />
+        </div>
       </Container>
     </Section>
   );
