@@ -12,48 +12,58 @@ interface PostItemProps {
   tags?: string[];
 }
 
-function PostDate({ date }: { date: string }) {
+const PostDate = ({ date }: { date: string }) => {
   return (
-    <time dateTime={date} className="text-sm text-muted-foreground">
+    <time dateTime={date} className="text-xs text-muted-foreground">
       {formatDate(date)}
     </time>
   );
-}
+};
 
-export function Item({
+const PostTags = ({ tags }: { tags: string[] }) => {
+  if (!tags.length) return null;
+
+  return (
+    <div className="flex gap-1 flex-wrap">
+      {tags.map((tag) => (
+        <Badge variant="outline" key={tag}>
+          {tag}
+        </Badge>
+      ))}
+    </div>
+  );
+};
+
+export const Item = ({
   slug,
   title,
   date,
   excerpt,
   className,
   tags,
-}: PostItemProps) {
+}: PostItemProps) => {
   return (
     <Link
       href={`/${slug}`}
       className={cn(
-        "group flex w-full items-start justify-between gap-2 transition-colors hover:bg-muted/50 hover:text-primary px-3 py-2",
+        "group grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start",
+        "transition-colors hover:bg-muted/50 hover:text-primary px-3 py-2",
         className
       )}
     >
-      <div>
+      <div className="group-hover:pl-1 group-hover:-mr-1 transition-all">
         <h3 className="font-medium">{title}</h3>
-        {excerpt && <p className="text-sm text-muted-foreground">{excerpt}</p>}
+        {excerpt && (
+          <p className="text-sm text-muted-foreground line-clamp-1 mt-1">
+            {excerpt}
+          </p>
+        )}
       </div>
-      <div>
+
+      <div className="flex flex-col gap-2 items-start md:items-end text-left md:text-right">
         <PostDate date={date} />
         {tags && <PostTags tags={tags} />}
       </div>
     </Link>
-  );
-}
-
-const PostTags = ({ tags }: { tags: string[] }) => {
-  return (
-    <div className="flex gap-1">
-      {tags?.map((tag) => (
-        <Badge key={tag}>{tag}</Badge>
-      ))}
-    </div>
   );
 };
