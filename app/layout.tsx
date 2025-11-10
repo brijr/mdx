@@ -1,7 +1,8 @@
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { Layout, Main } from "@/components/ds";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Toaster } from "@/components/ui/sonner";
-import { Layout } from "@/components/ds";
+import { Footer } from "@/components/footer";
 
 import type { Metadata } from "next";
 
@@ -27,7 +28,7 @@ export default function RootLayout({
     <Layout>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased w-screen"
+          "min-h-screen bg-background font-sans antialiased w-screen flex flex-col"
         )}
       >
         <ThemeProvider
@@ -36,7 +37,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Main className="flex-1">{children}</Main>
+          <Footer />
           <div className="fixed bottom-6 right-6">
             <ThemeToggle />
           </div>
