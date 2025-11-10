@@ -52,8 +52,6 @@ const sharedComponents = {
   img: ({
     src,
     alt,
-    width,
-    height,
     className,
   }: {
     src?: string;
@@ -63,15 +61,7 @@ const sharedComponents = {
     className?: string;
   }) => {
     if (!src) return null;
-    return (
-      <Media
-        src={src}
-        alt={alt}
-        width={typeof width === "string" ? parseInt(width) : width}
-        height={typeof height === "string" ? parseInt(height) : height}
-        className={className}
-      />
-    );
+    return <Media src={src} alt={alt} className={className} />;
   },
   YouTube: ({
     videoid,
