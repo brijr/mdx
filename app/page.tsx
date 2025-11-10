@@ -1,5 +1,5 @@
 import { Main, Section, Container, Prose } from "@/components/ds";
-import { PostCard } from "@/components/posts/post-card";
+import { PostItem } from "@/components/posts/post-item";
 import { Logo } from "@/components/logo";
 import { Post } from "#site/content";
 
@@ -41,18 +41,16 @@ const Posts = ({ posts }: { posts: Post[] }) => {
       <Container className="space-y-6">
         <h2 className="text-2xl font-semibold tracking-tight">Recent Posts</h2>
         {posts.length > 0 ? (
-          <div className="grid gap-4">
+          <ul className="border">
             {posts.map((post) => (
-              <PostCard
+              <PostItem
                 key={post.slug}
                 slug={post.slug}
                 title={post.title}
-                description={post.description}
                 date={post.date}
-                tags={post.tags}
               />
             ))}
-          </div>
+          </ul>
         ) : (
           <p className="text-muted-foreground">
             No posts yet. Create your first post in the{" "}
