@@ -1,6 +1,6 @@
 import { Main, Section, Container, Prose } from "@/components/ds";
-import { MDXContent } from "@/components/posts/mdx-content";
-import { Meta } from "@/components/posts/meta";
+import { MDXContent } from "@/components/markdown/mdx-content";
+import { Meta } from "@/components/markdown/meta";
 
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";

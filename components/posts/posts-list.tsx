@@ -9,26 +9,34 @@ export const PostsList = ({ posts }: { posts: Post[] }) => {
       <Container className="space-y-6">
         <h2 className="text-2xl font-semibold tracking-tight">Recent Posts</h2>
         {posts.length > 0 ? (
-          <ul className="border divide-x">
+          <ul className="border divide-y">
             {posts.map((post) => (
               <PostItem
                 key={post.slug}
                 slug={post.slug}
                 title={post.title}
                 date={post.date}
+                excerpt={post.description}
+                tags={post.tags}
               />
             ))}
           </ul>
         ) : (
-          <p className="text-muted-foreground">
-            No posts yet. Create your first post in the{" "}
-            <code className="rounded bg-muted px-2 py-1 font-mono text-sm">
-              content/
-            </code>
-            directory.
-          </p>
+          <NoPosts />
         )}
       </Container>
     </Section>
+  );
+};
+
+const NoPosts = () => {
+  return (
+    <p className="text-muted-foreground">
+      No posts yet. Create your first post in the{" "}
+      <code className="rounded bg-muted px-2 py-1 font-mono text-sm">
+        content/
+      </code>
+      directory.
+    </p>
   );
 };
