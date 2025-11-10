@@ -1,7 +1,6 @@
 import { Main, Section, Container, Prose } from "@/components/ds";
-import { PostItem } from "@/components/posts/post-item";
+import { PostsList } from "@/components/posts/posts-list";
 import { Logo } from "@/components/logo";
-import { Post } from "#site/content";
 
 import { getAllPosts } from "@/lib/posts";
 
@@ -11,56 +10,7 @@ export default function HomePage() {
   return (
     <Main>
       <Hero />
-      <Posts posts={posts} />
+      <PostsList posts={posts} />
     </Main>
   );
 }
-
-const Hero = () => {
-  return (
-    <Section className="bg-muted/50 border-b">
-      <Container className="grid gap-6">
-        <Logo width={32} />
-        <Prose isSpaced>
-          <h1>MDX Blog Starter Template</h1>
-          <p>
-            A modern MDX and Next.js starter made by{" "}
-            <a href="https://brijr.dev">brijr</a>. Built with Next.js, Velite,
-            and Tailwind CSS. View it on{" "}
-            <a href="https://github.com/brijr/mdx">GitHub</a>.
-          </p>
-        </Prose>
-      </Container>
-    </Section>
-  );
-};
-
-const Posts = ({ posts }: { posts: Post[] }) => {
-  return (
-    <Section>
-      <Container className="space-y-6">
-        <h2 className="text-2xl font-semibold tracking-tight">Recent Posts</h2>
-        {posts.length > 0 ? (
-          <ul className="border">
-            {posts.map((post) => (
-              <PostItem
-                key={post.slug}
-                slug={post.slug}
-                title={post.title}
-                date={post.date}
-              />
-            ))}
-          </ul>
-        ) : (
-          <p className="text-muted-foreground">
-            No posts yet. Create your first post in the{" "}
-            <code className="rounded bg-muted px-2 py-1 font-mono text-sm">
-              content/
-            </code>
-            directory.
-          </p>
-        )}
-      </Container>
-    </Section>
-  );
-};

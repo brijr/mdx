@@ -22,8 +22,8 @@ export function PostItem({ slug, title, date, className }: PostItemProps) {
     <Link
       href={`/${slug}`}
       className={cn(
-        "group flex w-full items-center justify-between gap-2 border-b transition-colors hover:bg-muted/50 hover:text-primary px-2 py-1.5",
-        className
+        "group flex w-full items-center justify-between gap-2 transition-colors hover:bg-muted/50 hover:text-primary px-2 py-1.5",
+        className,
       )}
     >
       <h3 className="font-medium">{title}</h3>
