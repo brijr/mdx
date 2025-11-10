@@ -2,7 +2,7 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Layout, Main } from "@/components/ds";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Toaster } from "@/components/ui/sonner";
-import { Footer } from "@/components/footer";
+import { Footer } from "@/components/site/footer";
 
 import type { Metadata } from "next";
 
@@ -28,7 +28,7 @@ export default function RootLayout({
     <Layout>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased w-screen flex flex-col"
+          "min-h-screen bg-background font-sans antialiased w-screen flex flex-col",
         )}
       >
         <ThemeProvider
