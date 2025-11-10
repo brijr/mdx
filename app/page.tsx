@@ -1,7 +1,7 @@
-import { Post } from "#site/content";
 import { Main, Section, Container, Prose } from "@/components/ds";
 import { PostCard } from "@/components/posts/post-card";
 import { Button } from "@/components/ui/button";
+import { Post } from "#site/content";
 
 import { getAllPosts } from "@/lib/posts";
 
@@ -22,7 +22,7 @@ export default function HomePage() {
 
 const Hero = () => {
   return (
-    <Section className="bg-muted border-b">
+    <Section className="bg-muted/50 border-b">
       <Container>
         <Prose isSpaced>
           <h1>MDX Blog Starter Template</h1>
@@ -35,12 +35,12 @@ const Hero = () => {
         <div className="flex gap-2 items-center flex-wrap mt-6">
           <Button asChild>
             <a href={GITHUB_URL} target="_blank">
-              View on GitHub
+              GitHub
             </a>
           </Button>
           <Button asChild variant="outline">
             <a href={VERCEL_URL} target="_blank">
-              Deploy to Vercel
+              Vercel
             </a>
           </Button>
         </div>
