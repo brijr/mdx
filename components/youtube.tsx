@@ -13,7 +13,7 @@ interface YouTubeProps {
 export function YouTube({
   videoid,
   width = "100%",
-  height = 400,
+  height,
   params,
   playlabel,
   className,
@@ -21,7 +21,7 @@ export function YouTube({
   return (
     <div
       className={cn(
-        "my-6 overflow-hidden rounded-lg [&_iframe]:rounded-lg",
+        "my-6 overflow-hidden rounded-lg [&_iframe]:rounded-lg border aspect-video",
         className
       )}
     >
