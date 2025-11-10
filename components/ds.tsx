@@ -87,7 +87,7 @@ const proseTextClasses = [
 ];
 
 const proseLinkClasses =
-  "[&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:text-primary dark:[&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:text-primary/75 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:transition-all [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:underline [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:hover:underline [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:underline-offset-2 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:decoration-primary/50 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:focus-visible:outline-hidden [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:focus-visible:ring-2 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:focus-visible:ring-primary/50";
+  "[&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:text-primary dark:[&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:text-primary [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:transition-all [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:underline [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:hover:underline [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:underline-offset-2 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:decoration-primary/50 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:focus-visible:outline-hidden [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:focus-visible:ring-2 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a,.bookmark-link)]:focus-visible:ring-primary/50";
 
 const proseListClasses = [
   "[&_ul]:pl-0 [&_ul]:py-3 [&_ul]:list-none [&_ul]:space-y-1",
