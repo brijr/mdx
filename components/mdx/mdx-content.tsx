@@ -4,6 +4,7 @@ import * as runtime from "react/jsx-runtime";
 
 import { Code } from "./code";
 import { Media } from "@/components/media";
+import { YouTube } from "@/components/youtube";
 
 import React from "react";
 
@@ -66,6 +67,32 @@ const sharedComponents = {
         alt={alt}
         width={typeof width === "string" ? parseInt(width) : width}
         height={typeof height === "string" ? parseInt(height) : height}
+        className={className}
+      />
+    );
+  },
+  YouTube: ({
+    videoid,
+    width,
+    height,
+    params,
+    playlabel,
+    className,
+  }: {
+    videoid: string;
+    width?: number | string;
+    height?: number;
+    params?: string;
+    playlabel?: string;
+    className?: string;
+  }) => {
+    return (
+      <YouTube
+        videoid={videoid}
+        width={width}
+        height={height}
+        params={params}
+        playlabel={playlabel}
         className={className}
       />
     );
