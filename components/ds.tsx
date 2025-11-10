@@ -179,7 +179,7 @@ export const Prose = ({
         "[&_small]:text-sm [&_small]:leading-snug",
         "[&_sub]:text-sm [&_sub]:align-baseline [&_sup]:text-sm [&_sup]:align-baseline",
         // Links (except in headings)
-        "[&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:text-primary dark:[&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:text-primary/75 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:transition-all [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:no-underline [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:hover:underline [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:underline-offset-2 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:decoration-primary/50 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:focus-visible:outline-hidden [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:focus-visible:ring-2 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:focus-visible:ring-primary/50",
+        "[&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:text-primary dark:[&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:text-primary/75 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:transition-all [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:underline [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:hover:underline [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:underline-offset-2 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:decoration-primary/50 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:focus-visible:outline-hidden [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:focus-visible:ring-2 [&_a:not(h1_a,h2_a,h3_a,h4_a,h5_a,h6_a)]:focus-visible:ring-primary/50",
         // Lists
         "[&_ul]:pl-0 [&_ul]:py-3 [&_ul]:list-none [&_ul]:space-y-1",
         "[&_ul>li]:relative [&_ul>li]:pl-6",
