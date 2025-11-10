@@ -1,7 +1,22 @@
 {
   "name": "mdx-starter",
   "version": "0.1.0",
-  "private": true,
+  "description": "A modern MDX starter template with Next.js, Velite, and Tailwind CSS",
+  "author": "Bridger Tower",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brijr/mdx.git"
+  },
+  "keywords": [
+    "mdx",
+    "nextjs",
+    "velite",
+    "tailwindcss",
+    "typescript",
+    "blog",
+    "starter",
+    "template"
+  ],
   "imports": {
     "#site/content": "./.velite/index.js"
   },
