@@ -15,6 +15,42 @@ interface MediaProps {
   fill?: boolean;
 }
 
+const overlayClasses = cn(
+  "fixed inset-0 z-50 bg-black/80 backdrop-blur-sm",
+  "transition-opacity duration-300 ease-out",
+  "starting:opacity-0",
+  "data-[state=open]:opacity-100",
+  "data-[state=closed]:opacity-0"
+);
+
+const contentClasses = cn(
+  "fixed left-1/2 top-1/2 z-50 w-full max-w-7xl",
+  "-translate-x-1/2 -translate-y-1/2 p-4",
+  "transition-all duration-300 ease-out",
+  "starting:opacity-0 starting:scale-[0.96]",
+  "data-[state=open]:opacity-100 data-[state=open]:scale-100",
+  "data-[state=closed]:opacity-0 data-[state=closed]:scale-[0.96]"
+);
+
+const closeButtonClasses = cn(
+  "absolute -right-2 -top-2 z-10",
+  "rounded-full bg-background p-2 shadow-lg",
+  "transition-all duration-200 ease-out",
+  "hover:bg-accent",
+  "starting:opacity-0 starting:scale-90",
+  "data-[state=open]:opacity-100 data-[state=open]:scale-100",
+  "data-[state=open]:delay-150",
+  "data-[state=closed]:opacity-0 data-[state=closed]:scale-90"
+);
+
+const imageClasses = cn(
+  "h-auto w-full object-contain",
+  "transition-opacity duration-300 ease-out",
+  "starting:opacity-0",
+  "data-[state=open]:opacity-100 data-[state=open]:delay-75",
+  "data-[state=closed]:opacity-0"
+);
+
 export function Media({
   src,
   alt = "",
@@ -31,7 +67,9 @@ export function Media({
         <button
           type="button"
           className={cn(
-            "relative cursor-zoom-in overflow-hidden rounded-lg transition-opacity hover:opacity-90",
+            "relative cursor-zoom-in overflow-hidden rounded-lg",
+            "transition-opacity hover:opacity-90",
+            "border",
             className
           )}
           aria-label="Open image in lightbox"
@@ -57,25 +95,25 @@ export function Media({
       </Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-full max-w-7xl -translate-x-1/2 -translate-y-1/2 p-4 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95">
+        <Dialog.Overlay className={overlayClasses} />
+        <Dialog.Content className={contentClasses}>
           <Dialog.Title className="sr-only">
             {alt || "Image lightbox"}
           </Dialog.Title>
           <div className="relative flex items-center justify-center">
             <Dialog.Close asChild>
               <button
-                className="absolute -right-2 -top-2 z-10 rounded-full bg-background p-2 shadow-lg transition-colors hover:bg-accent"
+                className={closeButtonClasses}
                 aria-label="Close lightbox"
               >
                 <X className="h-5 w-5" />
               </button>
             </Dialog.Close>
-            <div className="relative max-h-[90vh] w-full overflow-auto rounded-lg">
+            <div className="relative max-h-[90vh] w-full overflow-auto rounded-lg border">
               <img
                 src={src}
                 alt={alt}
-                className="h-auto w-full object-contain"
+                className={imageClasses}
                 loading="eager"
               />
             </div>
