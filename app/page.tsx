@@ -30,22 +30,11 @@ const Hero = () => {
           <h1>MDX Blog Starter Template</h1>
           <p>
             A modern MDX and Next.js starter made by{" "}
-            <a href="https://bridger.to">Bridger</a> at{" "}
-            <a href="https://wip.ac">WIP</a>
+            <a href="https://brijr.dev">brijr</a>. Built with Next.js, Velite,
+            and Tailwind CSS. View it on{" "}
+            <a href="https://github.com/brijr/mdx">GitHub</a>.
           </p>
         </Prose>
-        <div className="flex gap-2 items-center flex-wrap mt-6">
-          <Button asChild>
-            <a href={GITHUB_URL} target="_blank">
-              GitHub
-            </a>
-          </Button>
-          <Button asChild variant="outline">
-            <a href={VERCEL_URL} target="_blank">
-              Vercel
-            </a>
-          </Button>
-        </div>
       </Container>
     </Section>
   );
