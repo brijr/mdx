@@ -2,9 +2,9 @@
 
 import * as runtime from "react/jsx-runtime";
 
-import { Bookmark } from "@/components/posts/bookmark";
-import { YouTube } from "@/components/posts/youtube";
-import { Media } from "@/components/posts/media";
+import { Bookmark } from "@/components/markdown/bookmark";
+import { YouTube } from "@/components/markdown/youtube";
+import { Media } from "@/components/markdown/media";
 import { Code } from "./code";
 
 import React from "react";
