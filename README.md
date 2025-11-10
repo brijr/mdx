@@ -1,125 +1,87 @@
 # MDX Starter Template
 
-A minimal, modern MDX starter template built with Next.js 15 and Tailwind CSS.
+A modern MDX starter template with Next.js 15, Velite, and Tailwind CSS.
 
 ## Features
 
-- **Next.js 15** - Latest App Router and React Server Components
-- **MDX** - Write content using Markdown + React components
+- **Next.js 15** - App Router with React Server Components
+- **Velite** - Type-safe MDX content management with auto-generated types
 - **Code Highlighting** - Syntax highlighting with copy-to-clipboard
-- **Dark Mode** - Built-in dark mode with system preference detection
-- **Anchor Links** - Clickable heading anchors for easy sharing
-- **Metadata Support** - Built-in frontmatter-style metadata for MDX files
+- **Dark Mode** - Built-in theme switching with system preference detection
 - **Shadcn/UI** - Beautiful and accessible components
-- **TypeScript** - Full type safety and modern development features
-- **Tailwind CSS** - Utility-first CSS framework
-- **Mobile-First** - Responsive design for all devices
+- **TypeScript** - Full type safety throughout
+- **Tailwind CSS v4** - Modern utility-first styling
 
 ## Quick Start
 
 ```bash
-# Clone the repository
-git clone https://github.com/brijr/mdx.git
-
 # Install dependencies
 pnpm install
 
 # Start development server
 pnpm dev
+
+# Build for production
+pnpm build
 ```
 
-## Documentation
+## Writing Content
 
-### File Structure
+Create MDX files in the `content/` directory. The folder structure determines your URLs.
 
 ```
-mdx/
-├── app/                # Next.js App Router
-│   ├── (markdown)/    # MDX content routes
-│   └── page.tsx       # Landing page
-├── components/        # React components
-│   ├── mdx/          # MDX-specific components
-│   └── theme/        # Theme components
-└── styles/           # Global styles
+content/
+├── example.mdx              → /example
+├── blog/
+│   └── my-post.mdx         → /blog/my-post
+└── docs/
+    └── guide.mdx           → /docs/guide
 ```
 
-### Writing Content
-
-Create new `.mdx` files in the `app/(markdown)` directory. Each file automatically becomes a route.
-
-#### Basic MDX Example
+### MDX File Example
 
 ```mdx
-# My New Page
+---
+title: "My Post Title"
+description: "A brief description"
+date: "2025-01-09"
+author: "Your Name"
+tags: ["nextjs", "mdx"]
+published: true
+---
 
-Welcome to my **MDX** page!
+# Your content here
+
+Write markdown with React components!
 
 \`\`\`typescript
-// Code with syntax highlighting
 function hello(name: string) {
   return `Hello, ${name}!`;
 }
 \`\`\`
 ```
 
-#### Adding Metadata
+### Frontmatter Fields
 
-Add metadata to your MDX files for better SEO and content organization:
+- `title` - Page title (required)
+- `description` - Page description (optional)
+- `date` - Publication date in ISO format (required)
+- `author` - Author name (optional)
+- `tags` - Array of tags (optional)
+- `published` - Boolean to show/hide post (default: true)
 
-```mdx
-import { Meta } from "@/components/mdx/meta";
+## How It Works
 
-export const metadata = {
-  title: "Your Page Title",
-  description: "A brief description of your page",
-  date: "2025-01-09",
-  author: "Your Name",
-  tags: ["mdx", "next.js", "react"],
-};
-
-<Meta {...metadata} />
-
-# Your content here
-```
-
-The metadata component will automatically display:
-- Title and description
-- Publication date
-- Author information
-- Tags with a beautiful pill-style design
-
-### Features
-
-#### Code Blocks
-- Syntax highlighting for multiple languages
-- Copy-to-clipboard button
-- Dark mode support
-
-#### Anchor Links
-- Clickable `#` next to headings
-- Automatically copies URL with anchor
-- Perfect for sharing specific sections
-
-#### Dark Mode
-- System preference detection
-- Manual toggle option
-- Persists across sessions
-
-#### Metadata Support
-- TypeScript interfaces for type safety
-- Customizable metadata fields
-- Beautiful component for displaying metadata
-- SEO-friendly structure
+1. **Content Management**: Velite compiles MDX files at build time into type-safe JavaScript
+2. **Routes**: Catch-all route (`app/[...slug]/page.tsx`) handles all content URLs
+3. **Static Generation**: All pages are pre-rendered at build time
+4. **Type Safety**: Auto-generated TypeScript types from your content schema
 
 ## Deployment
 
 Deploy to Vercel with one click:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbrijr%2Fmdx)
-
-## Contributing
-
-Pull requests are welcome! Feel free to open an issue for any bugs or feature requests.
 
 ## License
 
