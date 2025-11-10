@@ -3,15 +3,17 @@ import { PageMeta, formatDate } from "@/lib/mdx";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CopyArticleButton } from "./copy-article-button";
+import { ShareButton } from "./share-button";
 
 import Link from "next/link";
 import { Home } from "lucide-react";
 
 interface MetaProps extends PageMeta {
   className?: string;
+  slug?: string;
 }
 
-export function Meta({ title, description, date, author, tags }: MetaProps) {
+export function Meta({ title, description, date, author, tags, slug }: MetaProps) {
   const hasMeta = date || author || (tags && tags.length > 0);
 
   return (
@@ -39,6 +41,7 @@ export function Meta({ title, description, date, author, tags }: MetaProps) {
             </Link>
           </Button>
           <CopyArticleButton />
+          <ShareButton title={title} slug={slug} />
         </div>
       </Container>
     </Section>

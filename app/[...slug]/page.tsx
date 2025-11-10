@@ -55,6 +55,7 @@ export default async function Page(props: PageProps) {
         date={post.date}
         author={post.author}
         tags={post.tags}
+        slug={post.slug}
       />
       <Section>
         <Container>
