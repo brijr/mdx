@@ -88,6 +88,16 @@ You can also use images with explicit dimensions when you need more control over
 
 ![Screenshot](/screenshot.jpg)
 
+For optimal performance and automatic dimension handling, you can use static imports with the Media component. This approach automatically extracts width and height from the image, preventing layout shift:
+
+```jsx
+import heroImage from "@/public/image.webp";
+
+<Media src={heroImage} alt="Hero Image" />;
+```
+
+Static imports provide better performance and automatic aspect ratio calculation, ensuring your images display correctly without any layout shift. The component automatically extracts the image dimensions and applies the correct aspect ratio to prevent layout shift.
+
 All images support standard Markdown syntax, making it easy to add visual content to your articles. The component handles responsive sizing automatically, so your images will look great on all devices.
 
 ### YouTube Videos
@@ -97,10 +107,6 @@ Embedding YouTube videos is straightforward with the YouTube component. The comp
 This approach significantly improves page load times and reduces the initial JavaScript bundle size. Videos are lazy-loaded by default, so they won't affect your site's performance until users actually interact with them.
 
 <YouTube videoid="dQw4w9WgXcQ" height={400} />
-
-You can also customize the video playback with parameters. This is useful when you want to control specific aspects of the video player, such as hiding controls, setting a start time, or configuring other playback options:
-
-<YouTube videoid="dQw4w9WgXcQ" height={500} params="controls=0&start=10" />
 
 The YouTube component accepts all standard YouTube player parameters, giving you full control over how videos are displayed and played. This makes it easy to create custom video experiences that match your content's needs.
 

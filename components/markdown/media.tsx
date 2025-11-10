@@ -1,17 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+
+import Image, { type StaticImageData } from "next/image";
+
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
+
 import * as Dialog from "@radix-ui/react-dialog";
 
 interface MediaProps {
-  src: string;
+  src: string | StaticImageData;
   alt?: string;
   className?: string;
-  width?: number;
-  height?: number;
   fill?: boolean;
 }
 
@@ -51,15 +52,16 @@ const imageClasses = cn(
   "data-[state=closed]:opacity-0"
 );
 
-export function Media({
-  src,
-  alt = "",
-  className,
-  width,
-  height,
-  fill = false,
-}: MediaProps) {
+export function Media({ src, alt = "", className, fill = false }: MediaProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const isStaticImport =
+    typeof src === "object" && "width" in src && "height" in src;
+  const imageWidth = isStaticImport ? src.width : undefined;
+  const imageHeight = isStaticImport ? src.height : undefined;
+  const imageSrc = isStaticImport ? src.src : src;
+  const aspectRatio =
+    imageWidth && imageHeight ? `${imageWidth} / ${imageHeight}` : undefined;
 
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
@@ -70,25 +72,39 @@ export function Media({
             "relative cursor-zoom-in overflow-hidden rounded-lg",
             "transition-opacity hover:opacity-90",
             "border",
+            "block w-full",
+            (fill || (!isStaticImport && !imageWidth && !imageHeight)) &&
+              "aspect-4/3",
             className
           )}
+          style={
+            !fill && aspectRatio
+              ? {
+                  aspectRatio,
+                }
+              : undefined
+          }
           aria-label="Open image in lightbox"
         >
-          {fill ? (
+          {fill || (!isStaticImport && !imageWidth && !imageHeight) ? (
             <Image
               src={src}
               alt={alt}
               fill
-              className="object-cover"
+              className={cn(
+                isStaticImport ? "object-contain" : "object-cover",
+                "bg-muted"
+              )}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
             <Image
               src={src}
               alt={alt}
-              width={width || 800}
-              height={height || 600}
-              className="object-contain"
+              width={imageWidth}
+              height={imageHeight}
+              className="object-contain bg-muted"
+              style={{ width: "100%", height: "100%" }}
             />
           )}
         </button>
@@ -111,7 +127,7 @@ export function Media({
             </Dialog.Close>
             <div className="relative max-h-[90vh] w-full overflow-auto rounded-lg border">
               <img
-                src={src}
+                src={imageSrc}
                 alt={alt}
                 className={imageClasses}
                 loading="eager"

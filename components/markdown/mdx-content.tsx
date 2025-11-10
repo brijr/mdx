@@ -8,6 +8,7 @@ import { Media } from "@/components/markdown/media";
 import { Code } from "./code";
 
 import React from "react";
+import type { StaticImageData } from "next/image";
 
 const sharedComponents = {
   pre: ({ children }: { children: React.ReactNode }) =>
@@ -100,6 +101,19 @@ const sharedComponents = {
   },
   Bookmark: ({ url, className }: { url: string; className?: string }) => {
     return <Bookmark url={url} className={className} />;
+  },
+  Media: ({
+    src,
+    alt,
+    className,
+    fill,
+  }: {
+    src: string | StaticImageData;
+    alt?: string;
+    className?: string;
+    fill?: boolean;
+  }) => {
+    return <Media src={src} alt={alt} className={className} fill={fill} />;
   },
 };
 
