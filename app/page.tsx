@@ -1,14 +1,9 @@
 import { Main, Section, Container, Prose } from "@/components/ds";
 import { PostCard } from "@/components/posts/post-card";
-import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
 import { Post } from "#site/content";
 
 import { getAllPosts } from "@/lib/posts";
-
-const GITHUB_URL = "https://github.com/brijr/mdx";
-const VERCEL_URL =
-  "https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbrijr%2Fmdx";
 
 export default function HomePage() {
   const posts = getAllPosts();

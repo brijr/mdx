@@ -2,10 +2,10 @@
 
 import * as runtime from "react/jsx-runtime";
 
+import { Bookmark } from "@/components/posts/bookmark";
+import { YouTube } from "@/components/posts/youtube";
+import { Media } from "@/components/posts/media";
 import { Code } from "./code";
-import { Media } from "@/components/media";
-import { YouTube } from "@/components/youtube";
-import { Bookmark } from "@/components/bookmark";
 
 import React from "react";
 
@@ -98,13 +98,7 @@ const sharedComponents = {
       />
     );
   },
-  Bookmark: ({
-    url,
-    className,
-  }: {
-    url: string;
-    className?: string;
-  }) => {
+  Bookmark: ({ url, className }: { url: string; className?: string }) => {
     return <Bookmark url={url} className={className} />;
   },
 };
