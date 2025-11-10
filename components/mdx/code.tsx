@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Highlight, themes } from "prism-react-renderer";
 import { Check, Copy } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { toast } from "sonner";
 
@@ -19,8 +19,16 @@ export function Code({
   language = "typescript",
 }: CodeProps) {
   const [hasCopied, setHasCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Use a default theme during SSR to prevent hydration mismatch
+  // After mount, use the resolved theme
+  const isDark = mounted ? resolvedTheme === "dark" : false;
 
   const copyToClipboard = async () => {
     try {
@@ -48,31 +56,59 @@ export function Code({
         )}
       </button>
 
-      <Highlight
-        theme={isDark ? themes.vsDark : themes.github}
-        code={children.trim()}
-        language={language}
-      >
-        {({ style, tokens, getLineProps, getTokenProps }) => (
-          <pre
-            className={cn(
-              "overflow-x-auto rounded border bg-muted/30 p-3 text-sm font-mono",
-              className
-            )}
-            style={style}
-          >
-            <code>
-              {tokens.map((line, i) => (
-                <div key={i} {...getLineProps({ line })}>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token })} />
-                  ))}
-                </div>
-              ))}
-            </code>
-          </pre>
-        )}
-      </Highlight>
+      {!mounted ? (
+        <Highlight
+          theme={themes.github}
+          code={children.trim()}
+          language={language}
+        >
+          {({ style, tokens, getLineProps, getTokenProps }) => (
+            <pre
+              className={cn(
+                "overflow-x-auto rounded border bg-muted/30 p-3 text-sm font-mono",
+                className
+              )}
+              style={style}
+            >
+              <code>
+                {tokens.map((line, i) => (
+                  <div key={i} {...getLineProps({ line })}>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token })} />
+                    ))}
+                  </div>
+                ))}
+              </code>
+            </pre>
+          )}
+        </Highlight>
+      ) : (
+        <Highlight
+          theme={isDark ? themes.vsDark : themes.github}
+          code={children.trim()}
+          language={language}
+        >
+          {({ style, tokens, getLineProps, getTokenProps }) => (
+            <pre
+              className={cn(
+                "overflow-x-auto rounded border bg-muted/30 p-3 text-sm font-mono",
+                className
+              )}
+              style={style}
+            >
+              <code>
+                {tokens.map((line, i) => (
+                  <div key={i} {...getLineProps({ line })}>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token })} />
+                    ))}
+                  </div>
+                ))}
+              </code>
+            </pre>
+          )}
+        </Highlight>
+      )}
     </div>
   );
 }

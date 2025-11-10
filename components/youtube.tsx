@@ -19,10 +19,15 @@ export function YouTube({
   className,
 }: YouTubeProps) {
   return (
-    <div className={cn("my-6 overflow-hidden rounded-lg", className)}>
+    <div
+      className={cn(
+        "my-6 overflow-hidden rounded-lg [&_iframe]:rounded-lg",
+        className
+      )}
+    >
       <YouTubeEmbed
         videoid={videoid}
-        width={width}
+        width={typeof width === "string" ? undefined : width}
         height={height}
         params={params}
         playlabel={playlabel}
