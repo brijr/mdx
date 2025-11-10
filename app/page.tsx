@@ -1,6 +1,7 @@
 import { Main, Section, Container, Prose } from "@/components/ds";
 import { PostCard } from "@/components/posts/post-card";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/logo";
 import { Post } from "#site/content";
 
 import { getAllPosts } from "@/lib/posts";
@@ -23,7 +24,8 @@ export default function HomePage() {
 const Hero = () => {
   return (
     <Section className="bg-muted/50 border-b">
-      <Container>
+      <Container className="grid gap-6">
+        <Logo width={32} />
         <Prose isSpaced>
           <h1>MDX Blog Starter Template</h1>
           <p>
