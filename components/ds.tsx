@@ -1,8 +1,5 @@
-/**
- * Welcome to Craft DS this is the design system file for your project.
- * @file ds.tsx
- * @description Provides layout components for structuring pages and a design system for prose content.
- */
+// Design system components for layout and prose styling.
+// Provides reusable components for structuring pages and formatting rich text content.
 
 import { cn } from "@/lib/utils";
 
