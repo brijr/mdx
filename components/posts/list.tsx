@@ -1,9 +1,9 @@
 import { Section, Container } from "@/components/ds";
-import { PostItem } from "@/components/posts/post-item";
+import { Item } from "@/components/posts/item";
 
 import type { Post } from "#site/content";
 
-export const PostsList = ({ posts }: { posts: Post[] }) => {
+export const List = ({ posts }: { posts: Post[] }) => {
   return (
     <Section>
       <Container className="space-y-6">
@@ -11,7 +11,7 @@ export const PostsList = ({ posts }: { posts: Post[] }) => {
         {posts.length > 0 ? (
           <ul className="border divide-y">
             {posts.map((post) => (
-              <PostItem
+              <Item
                 key={post.slug}
                 slug={post.slug}
                 title={post.title}

@@ -2,8 +2,8 @@ import { Main, Section, Container, Prose } from "@/components/ds";
 import { MDXContent } from "@/components/markdown/mdx-content";
 import { Meta } from "@/components/markdown/meta";
 
-import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import { notFound } from "next/navigation";
 
 import type { Metadata } from "next";
 import type { Post } from ".velite";

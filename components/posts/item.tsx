@@ -20,7 +20,7 @@ function PostDate({ date }: { date: string }) {
   );
 }
 
-export function PostItem({
+export function Item({
   slug,
   title,
   date,

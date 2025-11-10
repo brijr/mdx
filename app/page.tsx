@@ -1,4 +1,4 @@
-import { PostsList } from "@/components/posts/posts-list";
+import { List } from "@/components/posts/list";
 import { Hero } from "@/components/site/hero";
 import { Main } from "@/components/ds";
 
@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <Main>
       <Hero />
-      <PostsList posts={posts} />
+      <List posts={posts} />
     </Main>
   );
 }
