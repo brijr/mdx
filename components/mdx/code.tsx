@@ -49,7 +49,7 @@ export function Code({
       </button>
 
       <Highlight
-        theme={isDark ? themes.oneDark : themes.github}
+        theme={isDark ? themes.vsDark : themes.github}
         code={children.trim()}
         language={language}
       >
