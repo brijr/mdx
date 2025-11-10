@@ -4,7 +4,7 @@ A modern MDX starter template with Next.js 15, Velite, and Tailwind CSS.
 
 ## Features
 
-- **Next.js 15** - App Router with React Server Components
+- **Next.js** - App Router with React Server Components
 - **Velite** - Type-safe MDX content management with auto-generated types
 - **Code Highlighting** - Syntax highlighting with copy-to-clipboard
 - **Dark Mode** - Built-in theme switching with system preference detection
@@ -89,4 +89,4 @@ MIT License - feel free to use this in your own projects!
 
 ---
 
-Made by [Bridger](https://bridger.to)
+Made by [Bridger](https://bridgertower.com)
